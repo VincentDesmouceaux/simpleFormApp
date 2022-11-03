@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Footer from "../src/components/Footer";
+import StepTwo from "../src/components/StepTwo";
 
 function App() {
   const [name, setName] = useState("");
@@ -74,7 +75,14 @@ function App() {
         <div>
           <input className="button" type="submit" value="Register" />
         </div>
+
+        <p className="erreur">
+          {errorMessage && "Les mots de passes sont différents"}
+        </p>
       </form>
+
+      <StepTwo name={name} email={email} password={password} />
+
       <Footer />
     </div>
   );
