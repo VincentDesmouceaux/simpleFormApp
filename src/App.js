@@ -23,11 +23,22 @@ function App() {
     const value = event.target.value;
     setConfirmPassword(value);
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("TEST SUBMIT FORM");
+
+    if (password === confirmPassword) {
+      alert("Données envoyées");
+    } else {
+      setErrorMessage("Les mots de passes sont différents");
+    }
+  };
+  const [errorMessage, setErrorMessage] = useState("");
 
   return (
     <div className="App">
       <h1>Create account</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <p>Name</p>
         <input
           placeholder="Name"
