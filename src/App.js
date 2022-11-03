@@ -1,23 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Footer from "../src/components/Footer";
 
 function App() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const handleNameChange = (event) => {
+    const value = event.target.value;
+    setName(value);
+  };
+  const handleEmailChange = (event) => {
+    const value = event.target.value;
+    setEmail(value);
+  };
+  const handlePasswordChange = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+  };
+  const handleConfirmPasswordChange = (event) => {
+    const value = event.target.value;
+    setConfirmPassword(value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Create account</h1>
+      <form>
+        <p>Name</p>
+        <input
+          placeholder="Name"
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleNameChange}
+        />
+        <p>Email</p>
+        <input
+          placeholder="Email"
+          type="text"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <p>Password</p>
+        <input
+          placeholder="Password"
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <p>Confirm your Password</p>
+        <input
+          placeholder="Confirm your Password"
+          type="password"
+          name="confirm your password"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        />
+        <div>
+          <input className="button" type="submit" value="Register" />
+        </div>
+      </form>
+      <Footer />
     </div>
   );
 }
